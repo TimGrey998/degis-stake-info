@@ -16,7 +16,7 @@ if (!ethers.utils.isAddress(reqAddress)) {
 
 const main = async () => {
   await Moralis.start({
-    serverUrl: "https://qunnh1zqotvf.usemoralis.com:2053/server",
+    serverUrl: process.server_url,
     appId: process.env.app_id,
     moralisSecret: process.env.moralis_secret,
   })
