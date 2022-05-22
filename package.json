@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "avalanche": "^3.14.0",
     "dotenv": "^16.0.1",
     "ethers": "^5.6.7",
     "moralis": "^1.7.0"
