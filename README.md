@@ -1,0 +1,3 @@
+```
+node getStakingInfo 0x...
+```
