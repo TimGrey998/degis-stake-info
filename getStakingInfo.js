@@ -14,17 +14,6 @@ if (!ethers.utils.isAddress(reqAddress)) {
   process.exit(0)
 }
 
-const main = async () => {
-  await Moralis.start({
-    serverUrl: process.server_url,
-    appId: process.env.app_id,
-    moralisSecret: process.env.moralis_secret,
-  })
-  const stakeLogs = await getStakeLogsByAddress(reqAddress)
-  if (stakeLogs.length) console.log(stakeLogs)
-  else console.log("no log found")
-}
-
 const getStakeLogsByAddress = async (address) => {
   const options = {
     address: "0x1d647379e4006768ab1b2b19495594ebe3fa4f9d",
@@ -52,6 +41,17 @@ const decodeLogData = (log) => {
     lockStart: new Date(log.block_timestamp).toLocaleString(),
     lockUntil: new Date(res[2].toNumber() * 1000).toLocaleString(),
   }
+}
+
+const main = async () => {
+  await Moralis.start({
+    serverUrl: process.server_url,
+    appId: process.env.app_id,
+    moralisSecret: process.env.moralis_secret,
+  })
+  const stakeLogs = await getStakeLogsByAddress(reqAddress)
+  if (stakeLogs.length) console.log(stakeLogs)
+  else console.log("no log found")
 }
 
 main()
